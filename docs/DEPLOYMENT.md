@@ -34,6 +34,10 @@ corepack enable
 corepack pnpm install --frozen-lockfile
 ```
 
+The repository explicitly allows `esbuild` install scripts in
+`pnpm-workspace.yaml`. This is required by pnpm 11's strict dependency-build
+policy and allows Cloudflare Pages and Render to install Vite/tsup successfully.
+
 Before deployment, run:
 
 ```bash
