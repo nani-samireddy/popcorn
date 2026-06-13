@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsup",
     "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
     "test": "vitest run",
@@ -26,6 +26,7 @@
     "@types/express": "^5.0.3",
     "@types/node": "^22.15.30",
     "socket.io-client": "^4.8.1",
+    "tsup": "^8.5.0",
     "tsx": "^4.20.3",
     "vitest": "^3.2.3"
   }
