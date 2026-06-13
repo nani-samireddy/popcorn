@@ -228,8 +228,20 @@ existing Git repository**. Connect the same repository and use:
 | Production branch | `main`, or your production branch |
 | Framework preset | None or Vite |
 | Root directory | Leave blank |
-| Build command | `corepack enable && pnpm install --frozen-lockfile && pnpm --filter @popcorn/web build` |
+| Build command | `pnpm --filter @popcorn/web build` |
 | Build output directory | `apps/web/dist` |
+
+Cloudflare Pages automatically runs `pnpm install` before the user build
+command. Enter the build command as plain text. Do **not** include surrounding
+backticks:
+
+```txt
+pnpm --filter @popcorn/web build
+```
+
+Literal backticks trigger shell command substitution. After the build finishes,
+the shell then attempts to execute pnpm output such as `Scope: all 4 workspace
+projects`, resulting in `/bin/sh: Scope:: not found`.
 
 Add this Pages environment variable for both Production and Preview if previews
 should connect to the same server:
